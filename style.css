@@ -1,0 +1,146 @@
+html{
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+    background-color: #f8e9dd;
+
+    margin: 50px 10px;
+}
+
+header{
+    background-color: #ec775f;  
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+.container{
+    border-radius: 10px;
+    padding: 15px;
+
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+.balance h4{
+    font-size: 11px;
+    font-weight: 500;
+    color: #f8e9dd;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+#current_balance{
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.logo{
+    justify-content: end;
+}
+
+.spending{
+    background-color: white;
+    color: #382314;
+
+    font-weight: 700;
+}
+
+.charts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    border-bottom: 1px solid #93867b;
+}
+
+caption{
+    width: 100%;
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.columns{
+    height: 180px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    overflow-y: hidden;
+}
+
+.column{
+    
+}
+
+tr{ 
+    height: 100%;
+    background-color:white;
+    min-width: 35px;
+    
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+td{
+    border-radius: 2px;
+    background-color: #ec775f;
+}
+
+
+.day{
+    font-size: 10px;
+    color: #93867b;
+    background-color: white;
+    z-index: 1;
+    text-align: center;
+    margin: 10px 0;
+    margin-bottom: 15px;
+}
+
+.total_container{
+    display: flex;
+    justify-content: space-between;
+    color: #93867b;
+
+    padding-top: 15px;
+}
+
+.this_month{
+    text-align: left;
+}
+
+#total{
+    font-size: 35px;
+}
+
+.total_container h3{
+    color: #382314;
+    font-size: 35px;
+    margin: 0;
+}
+
+.total_container p{
+    margin: 0;
+    font-size: 16px;
+}
+
+.last_month{
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.last_month h3{
+    font-size: 15px;
+}
+
+.last_month p{
+    font-size: 10px;
+}
