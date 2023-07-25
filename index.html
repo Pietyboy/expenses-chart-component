@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+
+
+  <title>Frontend Mentor | Expenses chart component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <header class="container">
+    <article class="balance">
+      <h4>My balance</h4>
+      <span id="current_balance">$921.48</span>
+    </article>
+    <img class="logo" src="images/logo.svg" height="15%" width="15%">
+  </header>
+
+  <section class="spending container">
+    <section>
+      <table class="charts">
+        <caption>Spending - Last 7 days</caption>
+        <tbody class="columns">
+
+          <tr  class="column">
+            <th class="day" scope="row"> mon </th>
+            <td id="mon"></td>
+          </tr> 
+
+          <tr class="column">
+            <th class="day">tue</th>
+            <td id="tue"></td>
+          </tr>
+          <tr class="column">
+            <th class="day">wed</th>
+            <td id="wed"></td>
+          </tr>
+          <tr class="column">
+            <th class="day">thu</th>
+            <td id="thu"></td>
+          </tr>
+          <tr class="column">
+            <th class="day">fri</th>
+            <td id="fri"></td>
+          </tr>
+          <tr class="column">
+            <th class="day">sat</th>
+            <td id="sat"></td>
+          </tr>
+          <tr class="column">
+            <th class="day">sun</th>
+            <td id="sun"></td>
+          </tr>
+        </tbody>
+        
+      </table>
+    </section>
+    <article class="total_container">
+      <div class="this_month">
+        <p>Total this month</p>
+        <h3>$<span id="total">478.33</span></h3>
+      </div>
+      <div class="last_month">
+        <h3>+<span id="changes">2.4</span>%</h3>
+        <p>from last month</p>
+      </div>
+    </article>
+  </section>
+  
+  
+
+  
+
+  
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+
+<script>
+
+    const values = [];
+    window.onload = async function spending_calculator(){
+      const response = await fetch("data.json");
+      const data = await response.json();
+      const total_container = document.querySelector('#total');
+      const id = '#';
+
+      for(let i = 0; i < 7; i++){
+        values.push(Object.values(data[i]))
+      }
+    
+      let max_value = -1;
+      let total_value = 0;
+      let max_day;
+      values.forEach(element => {
+        total_value += element[1];
+        if(element[1] > max_value){
+          max_value = element[1];
+          
+          max_day = element;
+        }
+      });
+
+      document.querySelector(id + max_day[0]).style.backgroundColor = '#76b5bc';
+      total_container.innerHTML = '';
+      total_container.innerHTML = total_value;
+
+      values.map( (x) => {
+        const day = document.querySelector(id+x[0]);
+        day.style.height = (x[1] / max_value * 100) + '%';
+      } );
+
+  }
+  </script>
+</html>
